@@ -67,7 +67,7 @@ module.exports = (env = {}) => ({
       exposes: {},
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./index.html"),
+      template: path.resolve(__dirname, "./public/index.html"),
       chunks: ["main"],
     }),
     new VueLoaderPlugin(),

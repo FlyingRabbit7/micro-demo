@@ -67,6 +67,7 @@ module.exports = (env = {}) => ({
       exposes: {
         "./Content": "./src/components/Content",
         "./Button": "./src/components/Button",
+        "./newVue": require.resolve("vue"),
       },
     }),
     new HtmlWebpackPlugin({

@@ -80,15 +80,15 @@ const config = {
       name: "app1",
       filename: "remoteEntry.js",
       remotes: {
-        app: "app@http://localhost:8000/remoteEntry.js",
-        home: "home@http://localhost:3002/remoteEntry.js",
+        // app: "app@http://localhost:8000/remoteEntry.js",
+        // home: "home@http://localhost:3002/remoteEntry.js",
       },
       exposes: {
-        "./Search": "./src/App",
+        "./Example": "./src/Example",
       },
       // shared: {
       //   react: {
-      //     singleton: true,
+      //     singleton: false,
       //   },
       //   "react-dom": {
       //     singleton: true,

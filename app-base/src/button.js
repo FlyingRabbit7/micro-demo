@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from 'react';
 
-// const RemoteButton = React.lazy(() => import("app2/Button"));
+function Test() {
+  // 声明一个叫 "count" 的 state 变量
+  const [count, setCount] = useState(0);
 
-const Button = () => (
-  <div>
-    <h1>Bi-Directional</h1>
-    <h2>App button</h2>
-  </div>
-);
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
 
-export default Button;
+export default Test;

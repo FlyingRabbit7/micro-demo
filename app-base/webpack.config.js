@@ -5,11 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { ModuleFederationPlugin } = require("webpack").container;
-const { VueLoaderPlugin } = require("vue-loader");
+// const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const config = {
   entry: [
-    'react-hot-loader/patch',
+    // 'react-hot-loader/patch',
     './src/index.js'
   ],
   output: {
@@ -19,14 +19,14 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        use: "vue-loader",
-      },
-      {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/
       },
+      // {
+      //   test: /\.vue$/,
+      //   use: "vue-loader",
+      // },
       {
         test: /\.css$/,
         use: [
@@ -76,6 +76,7 @@ const config = {
       'react-dom': '@hot-loader/react-dom'
     }
   },
+  devtool: 'eval-cheap-module-source-map',
   devServer: {
     port: 8000,
     contentBase: './dist'
@@ -86,13 +87,25 @@ const config = {
       filename: "remoteEntry.js",
       remotes: {
         app1: "app1@http://localhost:8001/remoteEntry.js",
+        app2: "app2@http://localhost:8082/remoteEntry.js",
         home: "home@http://localhost:3002/remoteEntry.js",
+        // vue2: "vue2@http://localhost:3003/remoteEntry.js",
+        react163: "react163@http://localhost:8008/remoteEntry.js",
+        // react1613: "react1613@http://localhost:8006/remoteEntry.js",
       },
       exposes: {
-        "./Button": "./src/button",
+        // "./Apptest": "./src/button",
+      },
+      shared: {
+        react: {
+          singleton: true,
+        },
+        "react-dom": {
+          singleton: true,
+        },
       },
     }),
-    new VueLoaderPlugin(),
+    // new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
