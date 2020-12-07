@@ -14,7 +14,8 @@ const config = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    publicPath: './'
   },
   module: {
     rules: [
@@ -73,13 +74,14 @@ const config = {
       '.jsx'
     ],
     alias: {
-      'react-dom': '@hot-loader/react-dom'
+      // 'react-dom': '@hot-loader/react-dom'
     }
   },
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     port: 8000,
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -127,11 +129,13 @@ const config = {
   }
 };
 
-module.exports = (env, argv) => {
-  if (argv.hot) {
-    // Cannot use 'contenthash' when hot reloading is enabled.
-    config.output.filename = '[name].[hash].js';
-  }
+// module.exports = (env, argv) => {
+//   if (argv.hot) {
+//     // Cannot use 'contenthash' when hot reloading is enabled.
+//     config.output.filename = '[name].[hash].js';
+//   }
 
-  return config;
-};
+//   return config;
+// };
+
+module.exports = config

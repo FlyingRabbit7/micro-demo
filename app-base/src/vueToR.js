@@ -1,4 +1,5 @@
 import React from "react";
+import { createApp } from 'home/newVue';
 
 class Adapter extends React.Component {
   constructor(props) {
@@ -7,8 +8,8 @@ class Adapter extends React.Component {
   }
   init = (hydrate) => {
     (async () => {
-      const ReactDOM = (await this.props.reactDomImporter()).default;
-      const React = (await this.props.reactImporter()).default;
+      // const ReactDOM = (await this.props.reactDomImporter()).default;
+      // const React = (await this.props.reactImporter()).default;
       const RemoteComponent = await this.props.importer();
       const { importer, children, ...rest } = this.props;
       console.log(rest, 'rest')

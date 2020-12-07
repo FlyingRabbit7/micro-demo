@@ -39,6 +39,8 @@
     "less-loader": "^7.1.0",
     "lodash-webpack-plugin": "^0.11.5",
     "node-sass": "^5.0.0",
+    "postcss": "^8.1.14",
+    "react-router-dom": "^5.2.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",

@@ -6,7 +6,7 @@ import React from "react";
 const App = () => (
   <div>
     <h1>Bi-Directional</h1>
-    <h2>App 2</h2>
+    <h2>App 2</h2>的地方
     <LocalButton />
     {/* <React.Suspense fallback="Loading Button">
       <RemoteButton />
