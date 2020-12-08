@@ -7,7 +7,7 @@ import Adapter from "./adapter2";
 import SelfButton from './button'
 import { Layout, Menu, Breadcrumb, Input } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import VueToR from './vueToR'
+// import VueToR from './vueToR'
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -65,10 +65,10 @@ class App extends React.Component {
                       ></Adapter>
                     </Route>
                     <Route exact path={'/vue3'}>
-                      {/* <Vue3Content pdata="hello" /> */}
-                      <VueToR
-                        importer={() => import("home/Content")}
-                      ></VueToR>
+                      <Vue3Content 
+                        pdata="hello" 
+                        
+                      />
                     </Route>
                     <Route path={'/'}>
                       <React.Suspense fallback="Loading 111" >

@@ -24,8 +24,8 @@ import './styles.css'
 // import Content from 'vue2/Content';
 // const Vue2Content = VueInReact(Content);
 
-import Content3 from 'home/Content';
-const Vue3Content = vueToReact(Content3);
+// import Content3 from 'home/Content';
+// const Vue3Content = vueToReact(Content3);
 
 // import Test from './Test.vue'
 // const VueComponent = VueInReact(Test);
@@ -88,9 +88,13 @@ class App extends React.Component {
                   importer={() => import("react163/Content")}
                 ></Adapter>
               </div>
-              <div style={{flex: 1}}>
+              <div id="vueApp" style={{flex: 1}}>
                 {/* <Vue3Content /> */}
-                <VueToR importer={() => import("home/Content")}></VueToR>
+                <VueToR
+                  {...this.state}
+                  importer={() => import("home/Content")}
+                  vueImporter={() => import("home/newVue")}                  
+                ></VueToR>
               </div>
             </div>
           {/* <VueComponent /> */}

@@ -15,6 +15,9 @@ export default {
       num: 0
     };
   },
+  mounted () {
+    console.log(this.props, 'vue内')
+  },
   methods: {
     onAdd: function () {
       this.num++

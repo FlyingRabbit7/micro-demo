@@ -7,6 +7,10 @@ const defaultPassProps = props => props
 
 export default (Component, { passProps = defaultPassProps } = {}) => {
   return props => {
+    function getInitState(){
+      return props.num;
+    }
+    // const [count, setCount] = useState(getInitState);
     const el = React.useRef(null)
     // console.log(el, 'el')
     const init = (hydrate) => {
@@ -14,7 +18,7 @@ export default (Component, { passProps = defaultPassProps } = {}) => {
       console.log(Component, 'Component');
       (async () => {
         const app = createApp(Component); 
-        console.log(app, 'app')
+        
         console.log(el.current, 'el.current')
         app.mount(el.current)
       })();
@@ -28,8 +32,12 @@ export default (Component, { passProps = defaultPassProps } = {}) => {
     // console.log('useEffect')
     console.log(111)
     // vue3.0使用方法
+    
       const app = createApp(Component);
+      console.log(app, 'app')
+      
       app.mount(el.current)
+      console.log(app.$forceUpdate, 'app')
       // init()
 
     //   return () => app.$destroy()
