@@ -45,6 +45,11 @@ class App extends React.Component {
       num: number
     })
   }
+  onReduce = (number) => {
+    this.setState({
+      num: number
+    })
+  }
   render() {
     const { name } = this.props;
     return (
@@ -59,25 +64,9 @@ class App extends React.Component {
             <div style={{display: 'flex', flexDireaction: 'row'}}>
               <div style={{flex: 1}}>
                 <React.Suspense fallback="Loading 111" >
-                  <App2Button {...this.state} onAdd={this.onAdd} />
+                  <App2Button num={this.state.num} onAdd={this.onAdd} />
                 </React.Suspense>
               </div>
-              {/* <div style={{flex: 1}}>
-                <Adapter
-                  // any other props, passed to ModernComponent
-                  {...this.state}
-                  reactImporter={() => import("react1613/newReact")}
-                  reactDomImporter={() => import("react1613/newReactDOM")}
-                  importer={() => import("react1613/ModernComponent")}
-                ></Adapter>
-                <Adapter
-                  // any other props, passed to ModernComponent
-                  {...this.state}
-                  reactImporter={() => import("react1613/newReact")}
-                  reactDomImporter={() => import("react1613/newReactDOM")}
-                  importer={() => import("react1613/Button")}
-                ></Adapter>
-              </div> */}
               <div style={{flex: 1}}>
                 {/* <Vue2Content /> */}
                 <Adapter
@@ -92,6 +81,7 @@ class App extends React.Component {
                 {/* <Vue3Content /> */}
                 <VueToR
                   {...this.state}
+                  onReduce={this.onReduce}
                   importer={() => import("home/Content")}
                   vueImporter={() => import("home/newVue")}                  
                 ></VueToR>

@@ -11,10 +11,11 @@ const Button = (props) => {
   function getInitState(){
     return props.num;
   }
-  const [count, setCount] = useState(getInitState);
+  const count = props.num;
+  // const [count, setCount] = useState(getInitState);
 
   const handleAdd = () => {
-    setCount(count+1);
+    // setCount(count+1);
     props.onAdd(count+1);
   }
 
