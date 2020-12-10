@@ -2,15 +2,15 @@
   <div style="color: red; border: 1px solid #000; padding: 20px">
     <h1>vue3</h1>
     
-    <div>{{remotedata.num}}</div>
-    <button @click="onReduce">reduce</button>
+    <div>{{remoteData && remoteData.num || '--'}}</div>
+    <button @click="handleReduce">reduce</button>
     {{number}}
   </div>
 </template>
 <script>
 
 export default {
-  props: ['remotedata'],
+  props: ['remoteData'],
   data() {
     return {
       title: "Remote Component in Action..1",
@@ -18,18 +18,22 @@ export default {
     };
   },
   mounted () {
-    console.log(this,'this')
-    console.log(this.remotedata.num, 'vue内')
+    // console.log(this,'this')
+    // console.log(this.remoteData.num, 'vue内')
+    // this.$on('share', (data) => {
+    //   console.log(data, 'data')
+    // })
   },
   updated () {
     console.log('vue3 updated')
-    console.log(this.remotedata.num)
+    console.log(this)
   },
   methods: {
-    onReduce: function () {
+    handleReduce: function () {
       this.number++
-      let num = this.remotedata.num - 1;
-      this.remotedata.onReduce(num)
+      
+      let num = this.remoteData.num - 1;
+      this.remoteData.onReduce(num)
     }
   }
 };

@@ -66,6 +66,7 @@ module.exports = (env = {}) => ({
       },
       exposes: {
         "./Content": "./src/components/Content",
+        "./Content2": "./src/components/Content2",
         "./Button": "./src/components/Button",
         "./newVue": require.resolve("vue"),
       },

@@ -3,6 +3,7 @@
     <h3>Main App1</h3>
     <Content />
     <Button />
+    <Content2 />
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import { ref, defineAsyncComponent } from "vue";
 export default {
   components: {
     Content: defineAsyncComponent(() => import("./components/Content")),
+    Content2: defineAsyncComponent(() => import("./components/Content2")),
     Button: defineAsyncComponent(() => import("./components/Button")),
   },
   // components: {

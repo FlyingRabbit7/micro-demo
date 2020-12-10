@@ -7,15 +7,17 @@ const style = {
 };
 
 const Button = (props) => {
-  console.log(props, 'app2props')
+  console.log(props.num, 'app2props')
   function getInitState(){
     return props.num;
   }
   const count = props.num;
   // const [count, setCount] = useState(getInitState);
+  console.log(count, 'count')
 
   const handleAdd = () => {
     // setCount(count+1);
+    // console.log(count)
     props.onAdd(count+1);
   }
 
