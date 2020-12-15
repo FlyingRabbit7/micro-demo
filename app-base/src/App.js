@@ -2,7 +2,7 @@
 import React from "react";
 import { hot } from 'react-hot-loader/root';
 // import { VueInReact } from 'vuera';
-import vueToReact from './vueToReact.js'
+import vueToReact from './vueToReact'
 import Adapter from "./adapter2";
 import SelfButton from './button'
 import { Layout, Menu, Breadcrumb, Input } from 'antd';
@@ -14,16 +14,20 @@ const { Header, Content, Sider } = Layout;
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './styles.css'
 
-const App2Button= React.lazy(() => import("app2/Button"));
+const App2App= React.lazy(() => import("app2/App"));
 
-import Content3 from 'home/Content';
-const Vue3Content = vueToReact(Content3);
+import Vue3App from 'home/App';
+// const Content3 = React.lazy(() => import("home/Content"));
+const Vue3Content = vueToReact(Vue3App, {vueImporter: () => import("home/newVue")});
+
+// import Content3 from 'home/Content';
+// const Vue3Content = vueToReact(Content3);
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { num: 1 };
-    this.setValue = this.setValue.bind(this);
+    // this.setValue = this.setValue.bind(this);
   }
   render() {
     const { name } = this.props;
@@ -34,7 +38,7 @@ class App extends React.Component {
             <div className="logo" />
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
               <Menu.Item key="1">
-                <Link to="/">react17</Link>
+                <Link to="/react17">react17</Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/vue3">vue3</Link>
@@ -65,14 +69,14 @@ class App extends React.Component {
                       ></Adapter>
                     </Route>
                     <Route exact path={'/vue3'}>
-                      <Vue3Content 
-                        pdata="hello" 
-                        
+                      <Vue3Content
+                        {...this.state}
+                        onReduce={this.onReduce}
                       />
                     </Route>
-                    <Route path={'/'}>
+                    <Route path={'/react17'}>
                       <React.Suspense fallback="Loading 111" >
-                        <App2Button />
+                        <App2App />
                       </React.Suspense>
                     </Route>
                   </Switch>

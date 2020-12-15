@@ -22,11 +22,13 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 8082,
+    historyApiFallback: true
   },
   target: "web",
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    // publicPath: '/'
   },
   module: {
     rules: [
@@ -109,6 +111,7 @@ module.exports = {
       },
       exposes: {
         "./Button": "./src/Button",
+        "./App": "./src/App",
       },
       shared: {
         ...deps,

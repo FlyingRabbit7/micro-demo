@@ -16,8 +16,13 @@ module.exports = (env = {}) => ({
   //   path: path.resolve(__dirname, './dist'),
   //   publicPath: '/dist/'
   // },
+  // output: {
+  //   publicPath: "auto",
+  // },
   output: {
-    publicPath: "auto",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    // publicPath: './'
   },
   resolve: {
     extensions: [".vue", ".jsx", ".js", ".json"],
@@ -68,6 +73,7 @@ module.exports = (env = {}) => ({
         "./Content": "./src/components/Content",
         "./Content2": "./src/components/Content2",
         "./Button": "./src/components/Button",
+        "./App": "./src/App",
         "./newVue": require.resolve("vue"),
       },
     }),
@@ -77,8 +83,9 @@ module.exports = (env = {}) => ({
     new VueLoaderPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
+    historyApiFallback: true,
     port: 3002,
     hot: true,
     headers: {

@@ -2,7 +2,7 @@
   <div style="color: red; border: 1px solid #000; padding: 20px">
     <h1>vue3 --------content2 ---setup</h1>
     
-    <div>{{count.num}}</div>
+    <div>{{count && count.num}}</div>
     <button @click="onClick">add</button>
   </div>
 </template>
