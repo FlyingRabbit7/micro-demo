@@ -22,7 +22,10 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     port: 8082,
-    historyApiFallback: true
+    historyApiFallback: {
+      index: "/dist/"
+    },
+    // publicPath: '/',
   },
   target: "web",
   output: {

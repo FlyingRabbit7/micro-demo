@@ -15,7 +15,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    publicPath: './'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -88,7 +88,7 @@ const config = {
       name: "app",
       filename: "remoteEntry.js",
       remotes: {
-        app1: "app1@http://localhost:8001/remoteEntry.js",
+        // app1: "app1@http://localhost:8001/remoteEntry.js",
         app2: "app2@http://localhost:8082/remoteEntry.js",
         home: "home@http://localhost:3002/remoteEntry.js",
         // vue2: "vue2@http://localhost:3003/remoteEntry.js",

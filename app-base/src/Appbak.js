@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader/root';
 // import { VueInReact } from 'vuera';
 // import vueToReact from './vueToReact.js'
 import Adapter from "./adapter2";
-import SelfButton from './button'
-import SelfButton2 from './button2'
+// import SelfButton from './button'
+// import SelfButton2 from './button2'
 import { Input } from 'antd';
 import vueToReact from './vueToReact/index'
 // import VueToR from './vueToR'
@@ -13,7 +13,7 @@ import vueToReact from './vueToReact/index'
 // console.log(newReactDOM, 'newReactDOM')
 
 // console.log(SelfButton2, 'SelfButton2')
-const SelfButton23 = vueToReact(SelfButton2);
+// const SelfButton23 = vueToReact(SelfButton2);
 // const Example = React.lazy(() => import("app1/Example"));
 // const React163Content = React.lazy(() => import("react163/Content"));
 
@@ -67,7 +67,7 @@ class App extends React.Component {
           <h1>这是基座，react 17版本</h1>
           Hello {name}
           <Input placeholder="Basic usage" />
-          <SelfButton></SelfButton>
+          {/* <SelfButton></SelfButton> */}
           
           {/* <div className="base-content" style="display: flex; flex-direaction: row;"> */}
             <div style={{display: 'flex', flexDireaction: 'row'}}>

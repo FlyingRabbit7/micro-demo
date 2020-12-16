@@ -16,7 +16,7 @@ const App = () => (
     <h1>Bi-Directional</h1>
     <h2>App 2</h2>的地方
     <LocalButton />
-    <BrowserRouter basename="/react17">
+    <BrowserRouter >
       <div>
         <nav>
           <ul>
